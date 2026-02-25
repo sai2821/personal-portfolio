@@ -1,0 +1,75 @@
+<section id="education" class="section education">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">My academic background</p>
+    </div>
+    
+    <div class="education-grid">
+      <div class="education-list">
+        <h3 class="subsection-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+          Academic Degree
+        </h3>
+        
+        @for (edu of educations; track edu.institution) {
+          <div class="education-card card">
+            <div class="edu-header">
+              <div class="edu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div class="edu-info">
+                <h4 class="edu-degree">{{ edu.degree }} in {{ edu.field }}</h4>
+                <p class="edu-institution">{{ edu.institution }}</p>
+                <div class="edu-meta">
+                  <span class="edu-period">{{ edu.period }}</span>
+                  @if (edu.gpa) {
+                    <span class="edu-gpa">CGPA: {{ edu.gpa }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+            
+            <ul class="edu-achievements">
+              @for (achievement of edu.achievements; track achievement) {
+                <li>{{ achievement }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+      <!--
+      <div class="certifications-list">
+        <h3 class="subsection-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+          </svg>
+          Certifications
+        </h3>
+        <div class="certifications-grid">
+          @for (cert of certifications; track cert.name) {
+            <div class="certification-card card">
+              <div class="cert-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <h4 class="cert-name">{{ cert.name }}</h4>
+              <p class="cert-issuer">{{ cert.issuer }}</p>
+              <span class="cert-year">{{ cert.year }}</span>
+            </div>
+          }
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+</section>

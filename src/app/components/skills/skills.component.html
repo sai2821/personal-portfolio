@@ -1,0 +1,33 @@
+<section id="skills" class="section skills">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <p class="section-subtitle">Technologies I work with to bring ideas to life</p>
+    </div>
+    
+    <div class="skills-grid">
+      @for (category of skillCategories; track category.title) {
+        <div class="skill-category card">
+          <h3 class="category-title">{{ category.title }}</h3>
+          <div class="skills-list">
+            @for (skill of category.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-icon">{{ skill.icon }}</span>
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-level">{{ skill.level }}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div 
+                    class="skill-progress" 
+                    [style.width.%]="skill.level"
+                  ></div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
